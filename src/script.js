@@ -1,6 +1,5 @@
 var commands = document.getElementById("commands");
-var commandline = document.getElementById("commandline");
-var temp_btn = document.getElementById("temp_btn");
+var comuser_inputmandline = document.getElementById("user_input");
 
 temp_btn.addEventListener("click", function(){
     var newCommand = document.createElement("li");
@@ -9,3 +8,22 @@ temp_btn.addEventListener("click", function(){
     commandline.value = "";
 });
 
+function execute(input){
+    var newCommand = document.createElement("li");
+    newCommand.innerHTML = input;
+    commands.appendChild(newCommand);
+}
+
+function key(e){
+    const input = user_input.innerHTML;
+
+    if(e.key == "Enter"){
+        execute(input);
+        user_input.value = "";
+        return;
+    }
+
+    user_input.innerHTML = input + e.key;
+}
+
+document.addEventListener("keypress", key);
