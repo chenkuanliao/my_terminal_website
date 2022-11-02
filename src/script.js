@@ -1,21 +1,16 @@
 var commands = document.getElementById("commands");
-var comuser_inputmandline = document.getElementById("user_input");
-
-temp_btn.addEventListener("click", function(){
-    var newCommand = document.createElement("li");
-    newCommand.innerHTML = commandline.value;
-    commands.appendChild(newCommand);
-    commandline.value = "";
-});
+var user_input = document.getElementById("user_input");
+var terminal_outputs = document.getElementById("terminal_outputs");
 
 function execute(input){
-    var newCommand = document.createElement("li");
-    newCommand.innerHTML = input;
-    commands.appendChild(newCommand);
+    let ouput;
+    input = input.toLowerCase();
+    output = `<div>testing the input is ${input}</div>`;
+    terminal_outputs.innerHTML = `${terminal_outputs.innerHTML+ouput}`;
 }
 
 function key(e){
-    const input = user_input.innerHTML;
+    const input = user_input.value;
 
     if(e.key == "Enter"){
         execute(input);
@@ -27,3 +22,4 @@ function key(e){
 }
 
 document.addEventListener("keypress", key);
+
