@@ -6,6 +6,12 @@ function execute(input){
     let output;
     input = input.toLowerCase();
     output = `<div>→ testing the input is ${input}</div>`;
+    if(!COMMANDS.hasOwnProperty(input)){
+        output += `<div> No such command: ${input} </div>`;
+    }
+    else{
+        output += `<div>${COMMANDS[input]} </div>`;
+    }
     terminal_outputs.innerHTML = `${terminal_outputs.innerHTML+output}`;
 }
 
@@ -23,3 +29,19 @@ function key(e){
 
 document.addEventListener("keypress", key);
 
+const COMMANDS = 
+{
+    help:
+        'Supported commands: ["about", "experience", "education", "skills", "contact"]',
+    about:
+        "Hello, my name is Brian, not Brain. I like chocolate and I don't like carrots",
+    experience:
+        'I wrote "hello world" in python, and I felt that I have the power in my hand!',
+    education:
+        'I learned to eat by myself at the age of 3. Impressive, isn\'t it?',
+    skills:
+        'I can hold three eggs in my mouth at the same time. Can you?',
+    contact:
+        'You can never find me! HAHAHA!'
+    
+}
