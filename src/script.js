@@ -12,6 +12,7 @@ function execute(input){
     else{
         output += `<div>${COMMANDS[input]} </div>`;
     }
+    
     terminal_outputs.innerHTML = `${terminal_outputs.innerHTML+output}`;
 }
 
