@@ -7,7 +7,7 @@ function execute(input){
     input = input.toLowerCase();
     output = `<div>→ ${input}</div>`;
     if(!COMMANDS.hasOwnProperty(input)){
-        output += `<div> No such command: ${input} </div>`;
+        output += `<div><span class="command">No such command: </span>${input} </div>`;
     }
     else{
         output += `<div>${COMMANDS[input]} </div>`;
@@ -33,7 +33,7 @@ document.addEventListener("keypress", key);
 const COMMANDS = 
 {
     help:
-        'Supported commands: ["about", "experience", "education", "skills", "contact"]',
+        'Supported commands: <span class="command-keyword">"about"</span>, <span class="command-keyword">"experience"</span>, <span class="command-keyword">"education"</span>, <span class="command-keyword">"skills"</span>, <span class="command-keyword">"contact"</span>',
     about:
         "Hello, my name is Brian, not Brain. I like chocolate and I don't like carrots",
     experience:
