@@ -1,6 +1,7 @@
 var commands = document.getElementById("commands");
 var user_input = document.getElementById("user_input");
 var terminal_outputs = document.getElementById("terminal_outputs");
+var terminal_content = document.getElementById("terminal_content");
 
 function execute(input){
     let output;
@@ -14,6 +15,11 @@ function execute(input){
     }
     
     terminal_outputs.innerHTML = `${terminal_outputs.innerHTML+output}`;
+    terminal_content.scrollTop = terminal_content.scrollHeight;
+
+    if(input == "github"){
+        setTimeout(() => {window.open("https://github.com/chenkuanliao", "_blank");}, 2000);
+    }
 }
 
 function key(e){
@@ -33,7 +39,7 @@ document.addEventListener("keypress", key);
 const COMMANDS = 
 {
     help:
-        'Supported commands: <span class="command-keyword">"about"</span>, <span class="command-keyword">"experience"</span>, <span class="command-keyword">"education"</span>, <span class="command-keyword">"skills"</span>, <span class="command-keyword">"contact"</span>',
+        'Supported commands: <span class="command-keyword">"about"</span>, <span class="command-keyword">"experience"</span>, <span class="command-keyword">"education"</span>, <span class="command-keyword">"skills"</span>, <span class="command-keyword">"contact"</span>, <span class="command-keyword">"github"</span>',
     about:
         "Hello, my name is Brian, not Brain. I like chocolate and I don't like carrots",
     experience:
@@ -43,6 +49,8 @@ const COMMANDS =
     skills:
         'I can hold three eggs in my mouth at the same time. Can you?',
     contact:
-        'You can never find me! HAHAHA!'
+        'You can never find me! HAHAHA!',
+    github:
+        'opening my GitHub page ...'
     
 }
